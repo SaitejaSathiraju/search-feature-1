@@ -1,0 +1,51 @@
+<div class="services-list">
+  <a style="background-color:#003366; color: #ffffff;" class="text-white no-hover" >Technical Details</a>
+  <!--<a href="archived_data_order.php">Overview</a>
+  <a href="archived_order_policy.php">Policy</a>
+  <a href="archive_order_diss_options.php">Dissemination Options</a> -->
+  <a href="archive_order_buy_irs_data.php">Who can buy IRS data</a>
+  <a href="archive_order_procedure.php">Ordering Procedure</a>
+  <a href="archive_order_price_pay.php">Price and Payments</a>
+  <a href="archive_order_license.php">Licensing</a>
+  <!--<a href="archive_order_warranty.php">Limited Warranty and Liability</a>  
+  <a href="archive_order_dispute.php">Returns and Disputes</a> -->
+  <a href="archive_any_query.php">Any Query?</a>
+</div>
+<style>
+  .services-list a {
+    font-size: 22px !important;
+  }
+
+  .services-list a.no-hover {
+    pointer-events: none;
+    cursor: default;
+  }
+
+  .services-list a.no-hover:hover {
+    background-color: #003366 !important;
+    color: #ffffff !important;
+  }
+  </style>
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+    const links = document.querySelectorAll('.services-list a');
+    const currentPath = window.location.pathname;
+
+    links.forEach(link => {
+        const href = link.getAttribute('href');
+        if (!href) return; // Skip "What We Do"
+
+        // Normalize paths for comparison
+        const normalizedHref = href.replace("./", "/");
+        const normalizedPath = currentPath.endsWith("/") ? currentPath : currentPath + "/";
+
+        if (normalizedPath.includes(normalizedHref)) {
+            link.style.backgroundColor = '#4abded'; // Highlight color
+            link.style.color = '#ffffff';
+        } else {
+            link.style.backgroundColor = '';
+            link.style.color = '#000000';
+        }
+    });
+});
+</script>
